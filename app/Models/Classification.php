@@ -2,10 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Group;
+use App\Models\SubClassification;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Classification extends Model
 {
     use HasFactory;
+
+    //One To One
+    public function group()
+    {
+        return $this->belongsTo(Group::class, 'id');
+    }
+
+
+    //One To Many
+    public function subClassification()
+    {
+        return $this->hasMany(SubClassification::class);
+    }
+
 }
