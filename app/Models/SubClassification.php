@@ -11,18 +11,8 @@ class  SubClassification extends Model
 {
     use HasFactory;
 
-<<<<<<< HEAD
-    public function classification(){
-        return $this->belongsTo(Classification::class);
-    }
-
-    public function medicines(){
-        return $this->hasMany(Medicine::class);
-    }
-=======
-    
     //One To One
-    public function clasification()
+    public function classification()
     {
         return $this->belongsTo(Classification::class, 'id')->with('group');
     }
@@ -35,5 +25,4 @@ class  SubClassification extends Model
     }
 
 
->>>>>>> e86397685647277ab26805a54c45da867ce304b9
 }
