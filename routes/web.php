@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{GroupController,ClassificationController, SubClassificationController,MedicineController, ResumeController};
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,8 @@ Route::get('/admin', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('admin/group',GroupController::class);
+Route::resource('admin/classification',ClassificationController::class);
+Route::resource('admin/subclassification',SubClassificationController::class);
+Route::resource('admin/medicine',MedicineController::class);
+Route::resource('admin/resume',ResumeController::class);

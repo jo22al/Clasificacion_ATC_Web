@@ -22,8 +22,9 @@ class GroupFactory extends Factory
     public function definition()
     {
         return [
-            'group_letter' => $this->faker->word(),
-            'group_name' => $this->faker->sentence(),
+            'letter' => $this->faker->word(),
+            'name' => $this->faker->sentence(),
+            'description' => $this->faker->text(2000),
         ];
     }
 }

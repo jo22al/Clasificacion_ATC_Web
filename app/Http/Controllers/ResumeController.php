@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Classification;
+use App\Models\Resume;
 use Illuminate\Http\Request;
 
-class ClassificationController extends Controller
+class ResumeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ClassificationController extends Controller
      */
     public function index()
     {
-        $classifications = Classification::latest()->paginate(15);
+        $resumes = Resume::latest()->get();
 
-        return view('admin.classification.index', compact('classifications'));
+        return view('admin.resume.index', compact('resumes'));
     }
 
     /**
@@ -43,10 +43,10 @@ class ClassificationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Classification  $classification
+     * @param  \App\Models\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function show(Classification $classification)
+    public function show(Resume $resume)
     {
         //
     }
@@ -54,10 +54,10 @@ class ClassificationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Classification  $classification
+     * @param  \App\Models\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function edit(Classification $classification)
+    public function edit(Resume $resume)
     {
         //
     }
@@ -66,10 +66,10 @@ class ClassificationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Classification  $classification
+     * @param  \App\Models\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Classification $classification)
+    public function update(Request $request, Resume $resume)
     {
         //
     }
@@ -77,10 +77,10 @@ class ClassificationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Classification  $classification
+     * @param  \App\Models\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Classification $classification)
+    public function destroy(Resume $resume)
     {
         //
     }

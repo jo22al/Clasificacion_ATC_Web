@@ -14,7 +14,10 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $groups = Group::latest()->paginate(15);
+
+        return view('admin.group.index', compact('groups'));
+
     }
 
     /**

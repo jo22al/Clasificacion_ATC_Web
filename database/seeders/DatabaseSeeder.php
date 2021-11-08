@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\{Group,Classification,SubClassification,Medicine};
+use App\Models\{Group,Classification,SubClassification,Medicine,Resume};
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         Classification::factory(10)->create();
         SubClassification::factory(5)->create();
         Medicine::factory(5)->create();
+        Resume::factory(5)->create();
     }
 }

@@ -18,6 +18,7 @@ class CreateSubClassificationsTable extends Migration
             $table->unsignedBigInteger('classification_id')->nullable();
             $table->string('code');
             $table->string('name');
+            $table->mediumText('additional')->nullable();
 
             $table->timestamps();
 

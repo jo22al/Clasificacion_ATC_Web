@@ -16,15 +16,18 @@ class CreateMedicinesTable extends Migration
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('sub_classification_id')->nullable();
+            $table->unsignedBigInteger('classification_id')->nullable();
             $table->text('active_principle');
             $table->text('pharmaceutical_form');
             $table->text('indications');
             $table->text('route_dosage');
             $table->text('management_rules');
             $table->text('observations');
+            $table->mediumText('additional')->nullable();
             $table->timestamps();
 
             $table->foreign('sub_classification_id')->references('id')->on('sub_classifications')->onDelete('set null');
+            $table->foreign('classification_id')->references('id')->on('classifications')->onDelete('set null');
         });
     }
 

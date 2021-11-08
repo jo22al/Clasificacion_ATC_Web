@@ -18,6 +18,7 @@ class CreateClassificationsTable extends Migration
             $table->unsignedBigInteger('group_id')->nullable();
             $table->string('code');
             $table->string('name');
+            $table->mediumText('additional')->nullable();
 
             $table->timestamps();
 

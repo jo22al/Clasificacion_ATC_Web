@@ -255,6 +255,31 @@ return [
         ],
         ['header' => 'account_settings'],
         [
+            'text' => 'Grupos',
+            'url'  => 'admin/group',
+            'icon' => 'fas fa-layer-group',
+        ],
+        [
+            'text' => 'Clasificaciones',
+            'url'  => 'admin/classification',
+            'icon' => 'fab fa-buffer',
+        ],
+        [
+            'text' => 'Sub Clasificaciones',
+            'url'  => 'admin/subclassification',
+            'icon' => 'fas fa-project-diagram',
+        ],
+        [
+            'text' => 'Medicamentos',
+            'url'  => 'admin/medicine',
+            'icon' => 'fas fa-pills',
+        ],
+        [
+            'text' => 'Curriculums',
+            'url'  => 'admin/resume',
+            'icon' => 'fas fa-user-md',
+        ],
+        [
             'text' => 'profile',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
