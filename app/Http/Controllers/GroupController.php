@@ -27,7 +27,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.group.create');
     }
 
     /**
@@ -38,7 +38,23 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'letter' => 'required|max:1|unique:groups',
+            'name' => 'required',
+            'description' => 'sometimes'
+        ]);
+
+        $data = $request->only('letter', 'name');
+        $description = $request->input('description');
+        $data['letter'] =strtoupper($data['letter']);
+
+        if($description)
+            $data['description'] = $description;
+
+        Group::create($data);
+
+        return redirect()->route('group.index')->with('success','Grupo creado correctamente');
+
     }
 
     /**
