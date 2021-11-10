@@ -17,7 +17,7 @@ class Medicine extends Model
     //One To One
     public function sub_classification()
     {
-        return $this->belongsTo(SubClassification::class)->with('clasification');
+        return $this->belongsTo(SubClassification::class)->with('classification');
     }
 
 }
