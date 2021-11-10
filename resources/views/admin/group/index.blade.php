@@ -32,6 +32,7 @@
                                                 <th>ID</th>
                                                 <th>LETRA</th>
                                                 <th>NOMBRE</th>
+                                                <th>DESCRIPCIÓN</th>
                                                 <th>ACCIONES</th>
                                             </tr>
                                         </thead>
@@ -43,6 +44,7 @@
                                                     <td><strong>{{ $group->id }}</strong></td>                                            
                                                     <td>{{ $group->letter }}</td>
                                                     <td>{{ $group->name }}</td>
+                                                    <td>{!! Str::limit($group->description, 75) !!}</td>
                                                     <td class="d-flex">
                                                         <a href="{{ route('group.edit', $group) }}" class="btn btn-warning mr-2"><i class="far fa-edit"></i></a>
                                                         <form action="{{ route('group.destroy', $group) }}" method="POST">

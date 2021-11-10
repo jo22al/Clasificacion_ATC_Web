@@ -14,7 +14,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::latest()->paginate(15);
+        $groups = Group::paginate(15);
 
         return view('admin.group.index', compact('groups'));
 
@@ -76,7 +76,7 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        //
+        return view('admin.group.edit', compact('group'));
     }
 
     /**
@@ -88,7 +88,24 @@ class GroupController extends Controller
      */
     public function update(Request $request, Group $group)
     {
-        //
+
+        $request->validate([
+            'letter' => 'required|max:1|unique:groups,letter,' . $group->id,
+            'name' => 'required',
+            'description' => 'sometimes'
+        ]);
+
+        $data = $request->only('letter', 'name');
+        $description = $request->input('description');
+        $data['letter'] =strtoupper($data['letter']);
+
+        if($description)
+            $data['description'] = $description;
+
+        $group->update($data);
+
+        return redirect()->route('group.index')->with('success','Grupo actualizado correctamente');
+
     }
 
     /**
@@ -99,6 +116,7 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
-        //
+        $group->delete();
+        return back()->with('success', 'Grupo eliminado correctamente');
     }
 }
