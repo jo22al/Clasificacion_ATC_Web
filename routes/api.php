@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MedicineController;
+use App\Http\Controllers\Api\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource( name: 'medicines', controller: MedicineController::class );
+Route::apiResource( name: 'groups', controller: GroupController::class );

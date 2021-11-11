@@ -26,7 +26,7 @@ class Classification extends Model
     //One To Many
     public function subClassification()
     {
-        return $this->hasMany(SubClassification::class);
+        return $this->hasMany(SubClassification::class)->with('medicines');
     }
 
 }

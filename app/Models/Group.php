@@ -16,7 +16,9 @@ class Group extends Model
         'description'
     ];
 
-/*     public function classifications(){
-        return $this->hasMany(Classification::Class);
-    }  */
+
+    //One To Many
+    public function classifications(){
+        return $this->hasMany(Classification::class)->with('subClassification');
+    } 
 }
