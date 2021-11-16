@@ -32,33 +32,20 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="mb-4">
-                        <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">About Us</h5>
-                        <h1 class="display-4">Best Medical Care For Yourself and Your Family</h1>
+                        <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Sobre el Proyecto</h5>
+                        <h1 class="display-4">Guia de Medicamentos Geriatricos</h1>
                     </div>
-                    <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna</p>
+                    <p>
+
+                        Proyecto de final de carrera por los estudiantes de la universidad "universidad",
+                        sobre una guia de medicamentos y semaforo de medicamentos para pacientes geriatricos.
+
+                    </p>
                     <div class="row g-3 pt-3">
                         <div class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
-                                <i class="fa fa-3x fa-user-md text-primary mb-3"></i>
-                                <h6 class="mb-0">Qualified<small class="d-block text-primary">Doctors</small></h6>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <div class="bg-light text-center rounded-circle py-4">
-                                <i class="fa fa-3x fa-procedures text-primary mb-3"></i>
-                                <h6 class="mb-0">Emergency<small class="d-block text-primary">Services</small></h6>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <div class="bg-light text-center rounded-circle py-4">
-                                <i class="fa fa-3x fa-microscope text-primary mb-3"></i>
-                                <h6 class="mb-0">Accurate<small class="d-block text-primary">Testing</small></h6>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-6">
-                            <div class="bg-light text-center rounded-circle py-4">
-                                <i class="fa fa-3x fa-ambulance text-primary mb-3"></i>
-                                <h6 class="mb-0">Free<small class="d-block text-primary">Ambulance</small></h6>
+                                <i class="fab fa-android" style="font-size: 50px"></i>
+                                <h6 class="mb-0">App Movil<small class="d-block text-primary">ANDROID</small></h6>
                             </div>
                         </div>
                     </div>
@@ -73,8 +60,8 @@
     <div class="container-fluid py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Services</h5>
-                <h1 class="display-4">Excellent Medical Services</h1>
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">GUIA ATC</h5>
+                <h1 class="display-4">Grupos</h1>
             </div>
 
             grupos
@@ -88,20 +75,14 @@
     <div class="container-fluid bg-primary my-5 py-5">
         <div class="container py-5">
             <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-                <h5 class="d-inline-block text-white text-uppercase border-bottom border-5">Find A Doctor</h5>
-                <h1 class="display-4 mb-4">Find A Healthcare Professionals</h1>
-                <h5 class="text-white fw-normal">Duo ipsum erat stet dolor sea ut nonumy tempor. Tempor duo lorem eos sit sed ipsum takimata ipsum sit est. Ipsum ea voluptua ipsum sit justo</h5>
+                <h5 class="d-inline-block text-white text-uppercase border-bottom border-5">Busca por Medicamento</h5>
+                {{-- <h1 class="display-4 mb-4">Find A Healthcare Professionals</h1> --}}
+                {{-- <h5 class="text-white fw-normal">Duo ipsum erat stet dolor sea ut nonumy tempor. Tempor duo lorem eos sit sed ipsum takimata ipsum sit est. Ipsum ea voluptua ipsum sit justo</h5> --}}
             </div>
             <div class="mx-auto" style="width: 100%; max-width: 600px;">
                 <div class="input-group">
-                    <select class="form-select border-primary w-25" style="height: 60px;">
-                        <option selected>Department</option>
-                        <option value="1">Department 1</option>
-                        <option value="2">Department 2</option>
-                        <option value="3">Department 3</option>
-                    </select>
-                    <input type="text" class="form-control border-primary w-50" placeholder="Keyword">
-                    <button class="btn btn-dark border-0 w-25">Search</button>
+                    <input type="text" class="form-control border-primary w-50" placeholder="Medicamento">
+                    <button class="btn btn-dark border-0 w-25">Buscar</button>
                 </div>
             </div>
         </div>
@@ -113,8 +94,8 @@
     <div class="container-fluid py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Our Doctors</h5>
-                <h1 class="display-4">Qualified Healthcare Professionals</h1>
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Integrantes</h5>
+                <h1 class="display-6">MEDICOS ESTUDIANTES QUE HICIERON POSIBLE EL PROYECTO</h1>
             </div>
             <div class="owl-carousel team-carousel position-relative">
                 <div class="team-item">

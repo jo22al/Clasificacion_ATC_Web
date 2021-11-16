@@ -18,7 +18,7 @@ class CreateResumesTable extends Migration
             $table->string('photo')->nullable();
             $table->string('name');
             $table->string('profession');
-            $table->string('personal_profile');
+            $table->mediumText('personal_profile');
             $table->mediumText('laboral_experience');
             $table->mediumText('academic_history');
             $table->string('address')->default('Guatemala');
@@ -26,7 +26,7 @@ class CreateResumesTable extends Migration
             $table->string('telephone')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('awards_granted')->nullable();
+            $table->mediumText('awards_granted')->nullable();
             $table->string('password')->nullable();
 
             $table->timestamps();

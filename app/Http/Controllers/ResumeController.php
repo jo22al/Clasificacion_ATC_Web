@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resume;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use App\Http\Requests\ResumeRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ResumeController extends Controller
 {
@@ -26,7 +28,7 @@ class ResumeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.resume.create');
     }
 
     /**
@@ -35,9 +37,17 @@ class ResumeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ResumeRequest $request)
     {
-        //
+        $resume = Resume::Create( $request->all() );
+
+        if($request->file('photo')){
+            $resume->photo = $request->file('photo')->store('resume', 'public');
+            $resume->save();
+        }
+
+        return back()->with('status', 'Curriculum Creado');
+
     }
 
     /**
@@ -59,7 +69,7 @@ class ResumeController extends Controller
      */
     public function edit(Resume $resume)
     {
-        //
+        return view('admin.resume.edit', compact('resume'));
     }
 
     /**
@@ -69,9 +79,21 @@ class ResumeController extends Controller
      * @param  \App\Models\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Resume $resume)
+    public function update(ResumeRequest $request, Resume $resume)
     {
-        //
+        $photo_actual = $resume->photo;
+
+        $resume->update( $request->all() );
+
+        if($request->file('photo')){
+
+            Storage::disk('public')->delete( $photo_actual );
+
+            $resume->photo = $request->file('photo')->store('resume', 'public');
+            $resume->save();
+        }
+
+        return back()->with('status', 'Curriculum Editado');
     }
 
     /**
@@ -82,6 +104,10 @@ class ResumeController extends Controller
      */
     public function destroy(Resume $resume)
     {
-        //
+        Storage::disk('public')->delete( $resume->photo );
+
+        $resume->delete();
+
+        return back()->with('status', 'Curriculum Eliminado');
     }
 }

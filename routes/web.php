@@ -27,9 +27,22 @@ Route::get('/admin', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\PageController::class, 'inicio'])->name('inicio');
+Route::get('/guiaatc', [App\Http\Controllers\PageController::class, 'guiaatc'])->name('guiaatc');
+Route::get('/semaforo', [App\Http\Controllers\PageController::class, 'semaforo'])->name('semaforo');
+
 Route::resource('admin/group',GroupController::class);
 Route::resource('admin/classification',ClassificationController::class);
 Route::resource('admin/subclassification',SubClassificationController::class);
 Route::resource('admin/medicine',MedicineController::class);
 Route::resource('admin/resume',ResumeController::class);
+
+
+
+
+
+
+
+
+
+
 
