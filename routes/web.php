@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{GroupController,ClassificationController, SubClassificationController,MedicineController, ResumeController};
-
+use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,9 @@ use App\Http\Controllers\{GroupController,ClassificationController, SubClassific
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::get('/admin', function () {
@@ -26,9 +26,10 @@ Route::get('/admin', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\PageController::class, 'inicio'])->name('inicio');
 Route::resource('admin/group',GroupController::class);
 Route::resource('admin/classification',ClassificationController::class);
 Route::resource('admin/subclassification',SubClassificationController::class);
 Route::resource('admin/medicine',MedicineController::class);
 Route::resource('admin/resume',ResumeController::class);
+
