@@ -8,8 +8,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    CREAR CLASIFICACION
-                    <a href="{{ route('classification.index') }}" class="btn btn-danger btn-sm mb-4 float-right">Cancelar</a>
+                    CREAR SUB CLASIFICACION
+                    <a href="{{ route('subclassification.index') }}" class="btn btn-danger btn-sm mb-4 float-right">Cancelar</a>
                 </div>
 
                 <div class="card-body">
@@ -19,15 +19,15 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('classification.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('subclassification.store') }}" method="POST" enctype="multipart/form-data">
 
 
                         <div class="form-group">
-                            <label >Grupo</label>
-                            <select name="group_id" required>
-                                <option value="">Seleccionar Grupo</option>
-                                @foreach($groups as $group)
-                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
+                            <label >Clasificacion</label>
+                            <select name="classification_id" required>
+                                <option value="">Seleccionar Clasificacion</option>
+                                @foreach($classifications as $classification)
+                                    <option value="{{ $classification->id }}">{{ $classification->name }}</option>
                                 @endforeach
                             </select>
                         </div>

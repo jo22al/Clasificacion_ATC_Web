@@ -11,17 +11,23 @@ class Classification extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'group_id',
+        'code',
+        'name',
+        'additional',
+    ];
+
 
     public function medicines(){
         return $this->hasMany(Medicine::class);
     }
-    
+
     //One To One
     public function group()
     {
-        return $this->belongsTo(Group::class, 'id');
+        return $this->belongsTo(Group::class);
     }
-
 
     //One To Many
     public function subClassification()

@@ -11,10 +11,17 @@ class  SubClassification extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'classification_id',
+        'code',
+        'name',
+        'additional',
+    ];
+
     //One To One
     public function classification()
     {
-        return $this->belongsTo(Classification::class, 'id')->with('group');
+        return $this->belongsTo(Classification::class)->with('group');
     }
 
 

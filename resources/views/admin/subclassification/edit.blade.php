@@ -8,8 +8,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    CREAR CLASIFICACION
-                    <a href="{{ route('classification.index') }}" class="btn btn-danger btn-sm mb-4 float-right">Cancelar</a>
+                    EDITAR SUB CLASIFICACION
+                    <a href="{{ route('subclassification.index') }}" class="btn btn-danger btn-sm mb-4 float-right">Cancelar</a>
                 </div>
 
                 <div class="card-body">
@@ -19,19 +19,34 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('classification.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('subclassification.update', $subclassification) }}" method="POST" enctype="multipart/form-data">
 
 
                         <div class="form-group">
-                            <label >Grupo</label>
-                            <select name="group_id" required>
-                                <option value="">Seleccionar Grupo</option>
-                                @foreach($groups as $group)
-                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
+                            <label>Grupo</label>
+                            <select name="classification_id" required>
+                               @if($subclassification->classification_id)
+                                <option
+                                    value="{{ $subclassification->classification->id }}"
+                                >
+                                    {{ $subclassification->classification->name }}
+                                </option>
+                                @else
+                                <option value=""></option>
+                               @endif
+
+                                @foreach($classifications as $classification)
+
+                                    @continue(@$classification->id == @$subclassification->classification->id)
+
+                                    <option
+                                        value="{{ $classification->id }}"
+                                    >
+                                        {{ $classification->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
-
 
                         <div class="form-group">
                             <label>Nombre</label>
@@ -39,7 +54,7 @@
                                 type="text"
                                 name="name"
                                 class="form-control @error('name') is-invalid @enderror"
-                                value="{{ old('name') }}"
+                                value="{{ old('name', $subclassification->name) }}"
                                 autofocus
                             >
                         </div>
@@ -49,7 +64,7 @@
                                 type="text"
                                 name="code"
                                 class="form-control @error('code') is-invalid @enderror"
-                                value="{{ old('code') }}"
+                                value="{{ old('code', $subclassification->code) }}"
                                 autofocus
                             >
                         </div>
@@ -65,16 +80,16 @@
                                 rows="4"
                                 class="form-control"
                             >
-                                {{ old('additional') }}
+                                {{ old('additional', $subclassification->additional) }}
                             </textarea>
                         </div>
                         <hr>
                         <div class="form-group">
                             @csrf
+                            @method('put')
                             <input
-                                id="crear"
                                 type="submit"
-                                value="Crear"
+                                value="Editar"
                                 class="btn btn-sm btn-primary form-control mt-4"
                             >
                         </div>

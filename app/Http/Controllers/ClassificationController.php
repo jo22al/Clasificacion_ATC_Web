@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Classification;
 use Illuminate\Http\Request;
+use App\Models\Group;
+use App\Http\Requests\ClassificationRequest;
 
 class ClassificationController extends Controller
 {
@@ -26,7 +28,9 @@ class ClassificationController extends Controller
      */
     public function create()
     {
-        //
+        $groups = Group::get();
+
+        return view('admin.classification.create', compact('groups'));
     }
 
     /**
@@ -35,9 +39,11 @@ class ClassificationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClassificationRequest $request)
     {
-        //
+        Classification::Create( $request->all() );
+
+        return back()->with('status', 'Clasificacion Creada');
     }
 
     /**
@@ -59,7 +65,9 @@ class ClassificationController extends Controller
      */
     public function edit(Classification $classification)
     {
-        //
+        $groups = Group::get();
+
+        return view('admin.classification.edit', compact('classification', 'groups'));
     }
 
     /**
@@ -69,9 +77,11 @@ class ClassificationController extends Controller
      * @param  \App\Models\Classification  $classification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Classification $classification)
+    public function update(ClassificationRequest $request, Classification $classification)
     {
-        //
+        $classification->update( $request->all() );
+
+        return back()->with('status', 'Clasificacion Editada');
     }
 
     /**
@@ -82,6 +92,8 @@ class ClassificationController extends Controller
      */
     public function destroy(Classification $classification)
     {
-        //
+        $classification->delete();
+
+        return back()->with('status', 'Clasificacion Eliminada');
     }
 }

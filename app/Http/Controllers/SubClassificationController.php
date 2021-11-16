@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\SubClassification;
-use Illuminate\Http\Request;
+use App\Models\Classification;
+// use Illuminate\Http\Request;
+use App\Http\Requests\SubClassificationRequest;
 
 class SubClassificationController extends Controller
 {
@@ -16,7 +18,7 @@ class SubClassificationController extends Controller
     {
         $subclassifications = SubClassification::latest()->get();
 
-        return view('admin.subclasification.index', compact('subclassifications'));
+        return view('admin.subclassification.index', compact('subclassifications'));
     }
 
     /**
@@ -26,7 +28,9 @@ class SubClassificationController extends Controller
      */
     public function create()
     {
-        //
+        $classifications = Classification::get();
+
+        return view('admin.subclassification.create', compact('classifications'));
     }
 
     /**
@@ -35,9 +39,11 @@ class SubClassificationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubClassificationRequest $request)
     {
-        //
+        SubClassification::Create( $request->all() );
+
+        return back()->with('status', 'Sub Clasificacion Creada');
     }
 
     /**
@@ -46,7 +52,7 @@ class SubClassificationController extends Controller
      * @param  \App\Models\SubClassification  $subClassification
      * @return \Illuminate\Http\Response
      */
-    public function show(SubClassification $subClassification)
+    public function show(SubClassification $subclassification)
     {
         //
     }
@@ -57,9 +63,11 @@ class SubClassificationController extends Controller
      * @param  \App\Models\SubClassification  $subClassification
      * @return \Illuminate\Http\Response
      */
-    public function edit(SubClassification $subClassification)
+    public function edit(SubClassification $subclassification)
     {
-        //
+        $classifications = Classification::get();
+
+        return view('admin.subclassification.edit', compact('subclassification', 'classifications'));
     }
 
     /**
@@ -69,9 +77,11 @@ class SubClassificationController extends Controller
      * @param  \App\Models\SubClassification  $subClassification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SubClassification $subClassification)
+    public function update(SubClassificationRequest $request, SubClassification $subclassification)
     {
-        //
+        $subclassification->update( $request->all() );
+
+        return back()->with('status', 'Sub Clasificaicon Editada');
     }
 
     /**
@@ -80,8 +90,10 @@ class SubClassificationController extends Controller
      * @param  \App\Models\SubClassification  $subClassification
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SubClassification $subClassification)
+    public function destroy(SubClassification $subclassification)
     {
-        //
+        $subclassification->delete();
+
+        return back()->with('status', 'Sub Clasificacion Eliminada');
     }
 }
