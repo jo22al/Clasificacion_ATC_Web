@@ -17,12 +17,12 @@ class CreateMedicinesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('sub_classification_id')->nullable();
             $table->unsignedBigInteger('classification_id')->nullable();
-            $table->text('active_principle');
-            $table->text('pharmaceutical_form');
-            $table->text('indications');
-            $table->text('route_dosage');
-            $table->text('management_rules');
-            $table->text('observations');
+            $table->mediumtext('active_principle');
+            $table->mediumtext('pharmaceutical_form');
+            $table->mediumtext('indications');
+            $table->mediumtext('route_dosage');
+            $table->mediumtext('management_rules');
+            $table->mediumtext('observations');
             $table->mediumText('additional')->nullable();
             $table->timestamps();
 

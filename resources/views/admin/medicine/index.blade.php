@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mt-2">
-                            
+
                             <div class="card-header">
                                 MEDICINAS
                                 <a href="{{ route('medicine.create') }}" class="btn btn-sm btn-primary float-right">Crear</a>
@@ -26,17 +26,14 @@
                                         {{ session('status') }}
                                     </div>
                                 @endif
-                                <div class="table-responsive">  
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>                                            
-                                                <th></th>                                            
+                                                <th>ID</th>
+                                                <th> - </th>
                                                 <th>PRINCIPIO ACTIVO</th>
                                                 <th>FORMA FARMACEUTICA</th>
-                                                <th>INDICACIONES</th>
-                                                <th>VIA</th>
-                                                <th>REGLAS DE MANEJO</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -44,20 +41,18 @@
 
                                                 <tr>
 
-                                                    <td><strong>{{ $medicine->id }}</strong></td> 
+                                                    <td><strong>{{ $medicine->id }}</strong></td>
                                                     <td>
+                                                        @if($medicine->sub_classification)
+                                                            <strong>Sub Clasificacion: </strong> <br> {{ $medicine->sub_classification->name }}
+                                                        @endif
+                                                        <br>
                                                         @if($medicine->classification)
-                                                            <strong>Clasificacion: </strong> {{ $medicine->classification->name }}
-                                                        @endif    
-                                                        @if($medicine->subclassification)
-                                                            <strong>Sub Clasificacion: </strong> {{ $medicine->subclassification->name }}
-                                                        @endif    
-                                                    </td>                                           
-                                                    <td> {{ $medicine->active_principle}} </td>
-                                                    <td>{{ $medicine->pharmaceutical_form }}</td>
-                                                    <td>{{ $medicine->indications }}</td>
-                                                    <td>{{ $medicine->route_dosage }}</td>
-                                                    <td>{{ $medicine->management_rules }}</td>
+                                                            <strong>Clasificacion: </strong> <br> {{ $medicine->classification->name }}
+                                                        @endif
+                                                    </td>
+                                                    <td>{!! $medicine->active_principle !!} </td>
+                                                    <td>{!! $medicine->pharmaceutical_form !!}</td>
                                                     <td class="d-flex">
                                                         <a href="{{ route('medicine.edit', $medicine) }}" class="btn btn-warning mr-2"><i class="far fa-edit"></i></a>
                                                         <form action="{{ route('medicine.destroy', $medicine) }}" method="POST">

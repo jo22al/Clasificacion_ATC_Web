@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Medicine;
+use App\Models\{Medicine, Classification, SubClassification};
 use Illuminate\Http\Request;
+use App\Http\Requests\MedicineRequest;
 
 class MedicineController extends Controller
 {
@@ -26,7 +27,10 @@ class MedicineController extends Controller
      */
     public function create()
     {
-        //
+        $classifications = Classification::get();
+        $subclassifications = SubClassification::get();
+
+        return view('admin.medicine.create', compact('classifications', 'subclassifications'));
     }
 
     /**
@@ -35,9 +39,11 @@ class MedicineController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MedicineRequest $request)
     {
-        //
+        Medicine::Create($request->all());
+
+        return back()->with('status', 'Medicamento Creado');
     }
 
     /**
@@ -59,7 +65,10 @@ class MedicineController extends Controller
      */
     public function edit(Medicine $medicine)
     {
-        //
+        $classifications = Classification::get();
+        $subclassifications = SubClassification::get();
+
+        return view('admin.medicine.edit', compact('medicine', 'classifications', 'subclassifications'));
     }
 
     /**
@@ -69,9 +78,11 @@ class MedicineController extends Controller
      * @param  \App\Models\Medicine  $medicine
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medicine $medicine)
+    public function update(MedicineRequest $request, Medicine $medicine)
     {
-        //
+        $medicine->update($request->all());
+
+        return back()->with('status', 'Medicamento Editado');
     }
 
     /**
@@ -82,6 +93,8 @@ class MedicineController extends Controller
      */
     public function destroy(Medicine $medicine)
     {
-        //
+        $medicine->delete();
+
+        return back()->with('status', 'Medicamento Eliminado'); 
     }
 }

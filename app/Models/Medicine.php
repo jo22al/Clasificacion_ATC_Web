@@ -10,6 +10,18 @@ class Medicine extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'sub_classification_id',
+        'classification_id',
+        'active_principle',
+        'pharmaceutical_form',
+        'indications',
+        'route_dosage',
+        'management_rules',
+        'observations',
+        'additional',
+    ];
+
     public function classification(){
         return $this->belongsTo(Classification::class);
     }
