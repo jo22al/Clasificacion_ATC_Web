@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Group;
 
 class PageController extends Controller
 {
     public function inicio(){
-        return view('frontend.inicio');
+
+        $groups = Group::get();
+
+        return view('frontend.inicio', compact('groups'));
     }
 
     public function guiaatc(){
@@ -18,20 +22,12 @@ class PageController extends Controller
         return 'semaforo';
     }
 
-    public function groups(){
-        return 'grupos';
-    }
-
     public function categories(){
         return 'categorias';
     }
 
     public function subcategories(){
         return 'sub categorias';
-    }
-
-    public function medicine(){
-        return 'medicamento';
     }
 
 
