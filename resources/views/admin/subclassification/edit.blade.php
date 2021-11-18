@@ -23,7 +23,7 @@
 
 
                         <div class="form-group">
-                            <label>Grupo</label>
+                            <label>Clasificacion</label>
                             <select name="classification_id" required>
                                @if($subclassification->classification_id)
                                 <option

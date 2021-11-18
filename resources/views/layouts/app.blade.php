@@ -60,9 +60,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                        <a href="about.html" class="nav-item nav-link">Guia ATC</a>
-                        <a href="service.html" class="nav-item nav-link">Semaforo de Medicamentos</a>
+                        <a href=" {{ route('inicio') }} " class="nav-item nav-link {{ (request()->is('/')) ? 'active' : '' }}" >Inicio</a>
+                        <a href="{{ route('guiaatc') }}" class="nav-item nav-link {{ (request()->is('guiaatc')) ? 'active' : '' }}" >Guia ATC</a>
+                        <a href=" {{ route('semaforo') }} " class="nav-item nav-link {{ (request()->is('semaforo')) ? 'active' : '' }}" >Semaforo de Medicamentos</a>
                     </div>
                 </div>
             </nav>

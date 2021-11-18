@@ -10,6 +10,12 @@
                 <div class="card-header">
                     CREAR MEDICAMENTO
                     <a href="{{ route('medicine.index') }}" class="btn btn-danger btn-sm mb-4 float-right">Cancelar</a>
+                    <button
+                    class="btn btn-primary btn-sm mb-4 mr-2 float-right"
+                    onclick="document.getElementById('crear').click()"
+                    >
+                    Editar
+                    </button>
                 </div>
 
                 <div class="card-body">

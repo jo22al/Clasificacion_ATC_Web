@@ -30,7 +30,6 @@ class MedicineRequest extends FormRequest
         'route_dosage' => 'required',
         'management_rules' => 'required',
         'observations' => 'required',
-        'additional' => 'required',
         ];
     }
 }

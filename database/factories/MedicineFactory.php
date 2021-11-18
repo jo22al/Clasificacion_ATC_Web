@@ -22,7 +22,7 @@ class MedicineFactory extends Factory
     public function definition()
     {
         return [
-            'sub_classification_id' => rand(1,5),
+            'sub_classification_id' => rand(1,3),
             'active_principle' => $this->faker->text(120),
             'pharmaceutical_form' => $this->faker->text(120),
             'indications' => $this->faker->text(120),

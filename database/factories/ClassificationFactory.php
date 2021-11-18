@@ -22,7 +22,7 @@ class ClassificationFactory extends Factory
     public function definition()
     {
         return [
-            'group_id' => rand(1,9),
+            'group_id' => rand(1,3),
             'code' => $this->faker->word(),
             'name' => $this->faker->word()
         ];

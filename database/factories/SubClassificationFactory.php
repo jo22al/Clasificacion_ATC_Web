@@ -22,7 +22,7 @@ class SubClassificationFactory extends Factory
     public function definition()
     {
         return [
-            'classification_id' => rand(1,5),
+            'classification_id' => rand(1,3),
             'code' => $this->faker->word(),
             'name' => $this->faker->word()
         ];
