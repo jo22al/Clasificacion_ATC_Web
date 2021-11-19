@@ -29,11 +29,7 @@ class ResumeRequest extends FormRequest
             'personal_profile' => 'required',
             'laboral_experience' => 'required',
             'academic_history' => 'required',
-            'address' => 'required',
             'email' => 'required',
-            'telephone' => 'required',
-            'facebook' => 'required',
-            'instagram' => 'required',
         ];
     }
 }

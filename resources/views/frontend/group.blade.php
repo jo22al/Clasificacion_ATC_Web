@@ -27,7 +27,7 @@
 			<th><h1>Forma Farmaceutica</h1></th>
 			<th><h1>Indicaciones</h1></th>
 			<th><h1>Via y Posologia</h1></th>
-			<th><h1>Norma de Administracion</h1></th>
+			<th><h1>Normas de Administracion</h1></th>
 			<th><h1>Observaciones</h1></th>
 		</tr>
 	</thead>

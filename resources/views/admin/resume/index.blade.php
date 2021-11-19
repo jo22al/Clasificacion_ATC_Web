@@ -46,8 +46,8 @@
                                                     <td><strong>{{ $resume->id }}</strong></td>
                                                     <td> {{ $resume->name}} </td>
                                                     <td>
-                                                        @if($resume->image)
-                                                        <img src="{{ $resume->get_image }}" alt="FOTO">
+                                                        @if($resume->photo)
+                                                        <img src="{{ $resume->get_photo }}" alt="FOTO" width="60px" height="auto">
                                                         @endif
                                                     </td>
                                                     <td> {{ $resume->profession}} </td>

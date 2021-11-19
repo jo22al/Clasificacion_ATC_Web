@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
+use App\Models\Resume;
 
 
 class PageController extends Controller
@@ -11,8 +12,9 @@ class PageController extends Controller
     public function inicio(){
 
         $groups = Group::get();
+        $resumes = Resume::get();
 
-        return view('frontend.inicio', compact('groups'));
+        return view('frontend.inicio', compact('groups', 'resumes'));
     }
 
     public function guiaatc(){
@@ -32,5 +34,9 @@ class PageController extends Controller
     }
 
 
+    public function resume(Resume $resume){
+
+        return view('frontend.resume', compact('resume'));
+    }
 
 }
