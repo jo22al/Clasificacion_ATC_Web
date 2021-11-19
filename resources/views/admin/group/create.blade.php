@@ -7,6 +7,8 @@
     <script>
       tinymce.init({
         selector: '#description',
+        plugins: 'table code advtable lists fullscreen',
+        language: 'es'
         height: 400,
       });
     </script>
