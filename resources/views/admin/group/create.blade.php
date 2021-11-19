@@ -2,11 +2,13 @@
 
 @section('js')
 
-    <script src="https://cdn.tiny.cloud/1/d2sy52ylq02xdebdayel9gkvno5mz1i7exb1yqie3mqp8e52/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/oph8tkt13egu2yl9zxiyutfk4g3b5srt52tr11x29913nl44/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
       tinymce.init({
         selector: '#description',
+        plugins: 'table code advtable lists fullscreen',
+        language: 'es'
         height: 400,
       });
     </script>
