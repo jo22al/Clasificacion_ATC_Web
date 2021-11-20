@@ -29,8 +29,8 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\PageController::class, 'inicio'])->name('inicio');
 Route::get('guiaatc', [App\Http\Controllers\PageController::class, 'guiaatc'])->name('guiaatc');
 Route::get('group{group}', [App\Http\Controllers\PageController::class, 'group'])->name('grupo');
-Route::get('semaforo', [App\Http\Controllers\PageController::class, 'semaforo'])->name('semaforo');
 Route::get('resume{resume}', [App\Http\Controllers\PageController::class, 'resume'])->name('resume');
+Route::get('search', [App\Http\Controllers\PageController::class, 'search'])->name('search');
 
 Route::resource('admin/group', GroupController::class);
 Route::resource('admin/classification',ClassificationController::class);

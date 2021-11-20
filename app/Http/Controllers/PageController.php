@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Group;
-use App\Models\Resume;
+use App\Models\{Resume, Group, Medicine};
 
 
 class PageController extends Controller
@@ -29,14 +28,17 @@ class PageController extends Controller
         return view('frontend.group', compact('group'));
     }
 
-    public function semaforo(){
-        return 'semaforo';
-    }
-
 
     public function resume(Resume $resume){
 
         return view('frontend.resume', compact('resume'));
+    }
+
+    public function search(Request $search){
+
+        $medicines = Medicine::where('active_principle', 'LIKE', "%$search->medicine%")->orwhere('indications', 'LIKE', "%$search->medicine%")->get();
+
+        return view('frontend.search', compact('medicines'));
     }
 
 }

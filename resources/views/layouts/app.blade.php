@@ -62,7 +62,13 @@
                     <div class="navbar-nav ms-auto py-0">
                         <a href=" {{ route('inicio') }} " class="nav-item nav-link {{ (request()->is('/')) ? 'active' : '' }}" >Inicio</a>
                         <a href="{{ route('guiaatc') }}" class="nav-item nav-link {{ (request()->is('guiaatc')) ? 'active' : '' }}" >Guia ATC</a>
-                        <a href=" {{ route('semaforo') }} " class="nav-item nav-link {{ (request()->is('semaforo')) ? 'active' : '' }}" >Semaforo de Medicamentos</a>
+                        <form method="get" action="{{ route('search') }}" style="position: relative; margin-left: 30px; margin-top: 25px;">
+                            <div class="input-group">
+                                @csrf
+                                <input name="medicine" type="search" class="form-control border-primary w-50" placeholder="Buscar" aria-label="search">
+                                <button type="submit" class="btn border-0 w-25" style="background-color: #13c5dd; color: white;"><i class="fas fa-search"></i></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </nav>
