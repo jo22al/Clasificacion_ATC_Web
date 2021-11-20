@@ -13,13 +13,22 @@ class MedicineController extends Controller
     {
 
         $group = $request->get('group');
-        $query = Medicine::queryApi();
+        $query1 = Medicine::queryApi1();
+        $query2 = Medicine::queryApi2();
 
         if ($request->has('group')) {
-            $query = $query->where('groups.letter', '=', $group);
+            $query1 = $query1->where('groups.letter', '=', $group);
         }
 
-        $medicines = $query->get();
+        if ($request->has('group')) {
+            $query2 = $query2->where('groups.letter', '=', $group);
+        }
+
+        $medicines1 = $query1->get()->toArray();
+        $medicines2 = $query2->get()->toArray();
+
+        $medicines = array_merge($medicines1, $medicines2);
+
 
         return response()->json([
             'medicines' => $medicines,
@@ -29,8 +38,14 @@ class MedicineController extends Controller
     public function search($query)
     {
 
-        $medicines = Medicine::queryApi()->where('medicines.active_principle', 'like', '%' . $query . '%')
-                                         ->orwhere('medicines.indications', 'like', '%' . $query . '%')->get();;
+        $medicines1 = Medicine::queryApi1()->where('medicines.active_principle', 'like', '%' . $query . '%')
+            ->orwhere('medicines.indications', 'like', '%' . $query . '%')->get()->toArray();
+
+        $medicines2 = Medicine::queryApi2()->where('medicines.active_principle', 'like', '%' . $query . '%')
+            ->orwhere('medicines.indications', 'like', '%' . $query . '%')->get()->toArray();
+
+
+        $medicines = array_merge($medicines1, $medicines2);
 
         return response()->json([
             'medicines' => $medicines,
