@@ -30,7 +30,7 @@
 
                         <div class="form-group">
                             <label>Clasificacion</label>
-                            <select name="classification_id">
+                            <select name="classification_id" class="browser-default custom-select">
                                @if($medicine->classification_id)
                                 <option
                                     value="{{ $medicine->classification->id }}"
@@ -56,7 +56,7 @@
 
                         <div class="form-group">
                             <label>Sub Clasificacion</label>
-                            <select name="sub_classification_id" required>
+                            <select name="sub_classification_id"  class="browser-default custom-select" required>
                                @if($medicine->sub_classification_id)
                                 <option
                                     value="{{ $medicine->sub_classification_id }}"
@@ -170,6 +170,21 @@
                                 {{ old('observations', $medicine->observations) }}
                             </textarea>
                         </div>
+
+                        <div class="form-group">
+                            <label>Criterio</label>
+                            <select
+                              name="criterion"
+                              class="browser-default custom-select"
+                            >
+                              <option value="">Seleccione una opcion</option>
+                              <option {{ ($medicine->criterion) == 'STOPP' ? 'selected' : '' }} value="STOPP">STOPP</option>
+                              <option {{ ($medicine->criterion) == 'START' ? 'selected' : '' }} value="START">START</option>
+                            </select>
+                        </div>
+
+           
+
                         <div class="form-group">
                             <label>Inforamcion Adicional</label>
                             @error('additional')

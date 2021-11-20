@@ -24,7 +24,7 @@
 
                         <div class="form-group">
                             <label >Clasificacion</label>
-                            <select name="classification_id" required>
+                            <select name="classification_id" required class="browser-default custom-select">
                                 <option value="">Seleccionar Clasificacion</option>
                                 @foreach($classifications as $classification)
                                     <option value="{{ $classification->id }}">{{ $classification->name }}</option>

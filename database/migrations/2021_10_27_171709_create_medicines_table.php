@@ -23,6 +23,7 @@ class CreateMedicinesTable extends Migration
             $table->mediumtext('route_dosage');
             $table->mediumtext('management_rules');
             $table->mediumtext('observations');
+            $table->string('criterion')->nullable();
             $table->mediumText('additional')->nullable();
             $table->timestamps();
 

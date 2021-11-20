@@ -24,7 +24,7 @@
 
                         <div class="form-group">
                             <label>Clasificacion</label>
-                            <select name="classification_id" required>
+                            <select name="classification_id" required class="browser-default custom-select">
                                @if($subclassification->classification_id)
                                 <option
                                     value="{{ $subclassification->classification->id }}"
