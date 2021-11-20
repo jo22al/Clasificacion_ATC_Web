@@ -29,6 +29,7 @@
 			<th><h1>Via y Posologia</h1></th>
 			<th><h1>Normas de Administracion</h1></th>
 			<th><h1>Observaciones</h1></th>
+			<th><h1>Criterio</h1></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -37,30 +38,37 @@
         @foreach($group->classifications as $classification)
 
             <tr style="background-color: #1d2a4de3; color: white;">
-                <td colspan="6">  {{ $classification->code }} {{ $classification->name }} </td>
+                <td colspan="7">  {{ $classification->code }} {{ $classification->name }} </td>
             </tr>
 
             @if($classification->additional)
                 <tr>
-                    <td colspan="6" style="margin: 0; padding: 10px">  {!! $classification->additional !!} </td>
+                    <td colspan="7" style="margin: 0; padding: 10px">  {!! $classification->additional !!} </td>
                 </tr>
             @endif
 
 
-            @foreach($classification->medicines as $medicines)
+            @foreach($classification->medicines as $medicine)
 
                 <tr>
-                    <td>{!! $medicines->active_principle !!}</td>
-                    <td>{!! $medicines->pharmaceutical_form !!}</td>
-                    <td>{!! $medicines->indications !!}</td>
-                    <td>{!! $medicines->route_dosage !!}</td>
-                    <td>{!! $medicines->management_rules !!}</td>
-                    <td>{!! $medicines->observations !!}</td>
+                    <td>{!! $medicine->active_principle !!}</td>
+                    <td>{!! $medicine->pharmaceutical_form !!}</td>
+                    <td>{!! $medicine->indications !!}</td>
+                    <td>{!! $medicine->route_dosage !!}</td>
+                    <td>{!! $medicine->management_rules !!}</td>
+                    <td>{!! $medicine->observations !!}</td>
+                    <td class="text-center" style="font-size: 30px">
+                        @if(@$medicine->criterion == "START")
+                        <i class="fas fa-check-circle" style="color: rgb(3, 208, 3)"></i>
+                        @elseif(@$medicine->criterion == "STOPP")
+                            <i class="fas fa-exclamation-circle" style="color: rgb(255, 17, 0)"></i>
+                        @endif
+                    </td>
                 </tr>
 
-                @if($medicines->additional)
+                @if($medicine->additional)
                     <tr>
-                        <td colspan="6" style="margin: 0; padding: 10px">  {!! $medicines->additional !!} </td>
+                        <td colspan="7" style="margin: 0; padding: 10px">  {!! $medicine->additional !!} </td>
                     </tr>
                 @endif
 
@@ -68,29 +76,36 @@
 
             @foreach ($classification->subClassification as $subclassification)
                 <tr style="background-color: #1d2a4d9f; color: white;">
-                    <td colspan="6">  {{ $subclassification->code }} {{ $subclassification->name }} </td>
+                    <td colspan="7">  {{ $subclassification->code }} {{ $subclassification->name }} </td>
                 </tr>
 
                 @if($subclassification->additional)
                     <tr>
-                        <td colspan="6" style="margin: 0; padding: 10px">  {!! $subclassification->additional !!} </td>
+                        <td colspan="7" style="margin: 0; padding: 10px">  {!! $subclassification->additional !!} </td>
                     </tr>
                 @endif
 
-                @foreach($subclassification->medicines as $medicines)
+                @foreach($subclassification->medicines as $medicine)
 
                     <tr>
-                        <td>{!! $medicines->active_principle !!}</td>
-                        <td>{!! $medicines->pharmaceutical_form !!}</td>
-                        <td>{!! $medicines->indications !!}</td>
-                        <td>{!! $medicines->route_dosage !!}</td>
-                        <td>{!! $medicines->management_rules !!}</td>
-                        <td>{!! $medicines->observations !!}</td>
+                        <td>{!! $medicine->active_principle !!}</td>
+                        <td>{!! $medicine->pharmaceutical_form !!}</td>
+                        <td>{!! $medicine->indications !!}</td>
+                        <td>{!! $medicine->route_dosage !!}</td>
+                        <td>{!! $medicine->management_rules !!}</td>
+                        <td>{!! $medicine->observations !!}</td>
+                        <td class="text-center" style="font-size: 30px">
+                            @if(@$medicine->criterion == "START")
+                            <i class="fas fa-check-circle" style="color: rgb(3, 208, 3)"></i>
+                            @elseif(@$medicine->criterion == "STOPP")
+                                <i class="fas fa-exclamation-circle" style="color: rgb(255, 17, 0)"></i>
+                            @endif
+                        </td>
                     </tr>
 
-                    @if($medicines->additional)
+                    @if($medicine->additional)
                         <tr>
-                            <td colspan="6" style="margin: 0; padding: 10px">  {!! $medicines->additional !!} </td>
+                            <td colspan="7" style="margin: 0; padding: 10px">  {!! $medicine->additional !!} </td>
                         </tr>
                     @endif
 

@@ -291,13 +291,16 @@
  }
 
 
- /* .container_table tr:hover {
+.container_table tr:hover {
     background-color: #464A52;
+    color: white;
  -webkit-box-shadow: 0 6px 6px -6px #0E1119;
         -moz-box-shadow: 0 6px 6px -6px #0E1119;
              box-shadow: 0 6px 6px -6px #0E1119;
  }
 
+
+  /*
  .container_table td:hover {
    background-color: #13c5dd;
    color: #ffffff;
