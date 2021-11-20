@@ -11,8 +11,8 @@
                     <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5" style="border-color: rgba(256, 256, 256, .3) !important;">GUIA ATC</h5>
                     <h1 class="display-1 text-white mb-md-4">Para Usuarios Geriatricos</h1>
                     <div class="pt-2">
-                        <a href="" class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Ver Guia</a>
-                        <a href="" class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">Integrantes</a>
+                        <a href=" {{ route('guiaatc') }} " class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Ver Guia</a>
+                        <a href="#team" class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">Integrantes</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
 
 
     <!-- Team Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="team">
         <div class="container">
             <div class="text-center mx-auto mb-5" style="max-width: 500px;">
                 <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Integrantes</h5>

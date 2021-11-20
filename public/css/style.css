@@ -264,9 +264,7 @@
  .container_table td {
        font-weight: normal;
        font-size: 1em;
-   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-        -moz-box-shadow: 0 2px 2px -2px #0E1119;
-             box-shadow: 0 2px 2px -2px #0E1119;
+       border-bottom: 1px solid #ddd;
  }
 
  .container_table {
@@ -331,3 +329,32 @@
 
 
 /* end resume style */
+
+
+
+/* dropdown */
+
+
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px 12px;
+    z-index: 1;
+    left: -310px;
+    border-radius: 10px;
+    text-align: left;
+  }
+
+  .dropdown:hover{
+      cursor: help;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+/* end dropdown */
