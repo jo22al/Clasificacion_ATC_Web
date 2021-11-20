@@ -30,7 +30,7 @@
 
                         <div class="form-group">
                             <label >Clasificacion</label>
-                            <select name="classification_id">
+                            <select name="classification_id" class="browser-default custom-select">
                                 <option value="">Seleccionar Clasificacion</option>
                                 @foreach($classifications as $classification)
                                     <option value="{{ $classification->id }}">{{ $classification->name }}</option>
@@ -40,7 +40,7 @@
 
                         <div class="form-group">
                             <label >Sub Clasificacion</label>
-                            <select name="sub_classification_id">
+                            <select name="sub_classification_id" class="browser-default custom-select">
                                 <option value="">Seleccionar Sub Clasificacion</option>
                                 @foreach($subclassifications as $subclassification)
                                     <option value="{{ $subclassification->id }}">{{ $subclassification->name }}</option>
@@ -138,6 +138,19 @@
                                 {{ old('observations') }}
                             </textarea>
                         </div>
+
+                        <div class="form-group">
+                            <label>Criterio</label>
+                            <select
+                              name="criterion"
+                              class="browser-default custom-select"
+                            >
+                              <option>Seleccione una opcion</option>
+                              <option value="STOPP">STOPP</option>
+                              <option value="START">START</option>
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <label>Inforamcion Adicional</label>
                             @error('additional')
@@ -153,7 +166,7 @@
                                 {{ old('additional') }}
                             </textarea>
                         </div>
-                        <hr>
+
                         <div class="form-group">
                             @csrf
                             <input

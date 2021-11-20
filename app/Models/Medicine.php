@@ -19,6 +19,7 @@ class Medicine extends Model
         'route_dosage',
         'management_rules',
         'observations',
+        'criterion',
         'additional',
     ];
 

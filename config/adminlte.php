@@ -257,27 +257,27 @@ return [
         [
             'text' => 'Grupos',
             'url'  => 'admin/group',
-            'icon' => 'fas fa-layer-group',
+            'icon' => 'fas fa-fw fa-layer-group',
         ],
         [
             'text' => 'Clasificaciones',
             'url'  => 'admin/classification',
-            'icon' => 'fab fa-buffer',
+            'icon' => 'fab fa-fw fa-buffer',
         ],
         [
             'text' => 'Sub Clasificaciones',
             'url'  => 'admin/subclassification',
-            'icon' => 'fas fa-project-diagram',
+            'icon' => 'fas fa-fw fa-project-diagram',
         ],
         [
             'text' => 'Medicamentos',
             'url'  => 'admin/medicine',
-            'icon' => 'fas fa-pills',
+            'icon' => 'fas fa-fw fa-pills',
         ],
         [
             'text' => 'Curriculums',
             'url'  => 'admin/resume',
-            'icon' => 'fas fa-user-md',
+            'icon' => 'fas fa-fw fa-user-md',
         ],
         [
             'text' => 'profile',

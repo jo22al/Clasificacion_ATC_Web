@@ -24,7 +24,7 @@
 
                         <div class="form-group">
                             <label >Grupo</label>
-                            <select name="group_id" required>
+                            <select name="group_id" required class="browser-default custom-select">
                                 <option value="">Seleccionar Grupo</option>
                                 @foreach($groups as $group)
                                     <option value="{{ $group->id }}">{{ $group->name }}</option>

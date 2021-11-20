@@ -1,20 +1,5 @@
 @extends('adminlte::page')
 
-@section('js')
-
-<script src="https://cdn.tiny.cloud/1/oph8tkt13egu2yl9zxiyutfk4g3b5srt52tr11x29913nl44/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
-    <script>
-      tinymce.init({
-        selector: '#description',
-        plugins: 'table code advtable lists fullscreen',
-        language: 'es'
-        height: 400,
-      });
-    </script>
-
-@stop
-
 
 @section('content')
 
@@ -102,3 +87,19 @@
 </div>
 
 @endsection
+
+
+@section('js')
+
+    <script src="https://cdn.tiny.cloud/1/oph8tkt13egu2yl9zxiyutfk4g3b5srt52tr11x29913nl44/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+    tinymce.init({
+        selector: '#description',
+        plugins: 'table code advtable lists fullscreen',
+        language: 'es',
+        height: 400,
+    })
+    </script>
+
+@stop
