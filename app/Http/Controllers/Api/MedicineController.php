@@ -8,57 +8,27 @@ use Illuminate\Http\Request;
 
 class MedicineController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    /*     public function index()
-    {
-        
-        $count = Medicine::count();
-        $medicines = Medicine::with('sub_classification')->get();
-    
-        return response()->json([
-            'total' => $count,
-            'medicines' => $medicines,
-        ]);
-
-    } */
 
     public function index(Request $request)
     {
 
         $group = $request->get('group');
-
-        $query = Medicine::join('sub_classifications', 'sub_classifications.id', '=', 'medicines.sub_classification_id')
-            ->join('classifications', 'classifications.id', '=', 'sub_classifications.classification_id')
-            ->join('groups', 'groups.id', '=', 'classifications.group_id')
-            ->select(
-                'groups.letter as letterGroup',
-                'groups.name as nameGroup',
-                'groups.description as descriptionGroup',
-                'classifications.code as codeClassification',
-                'classifications.name as nameClassification',
-                'classifications.additional as additionalClassification',
-                'sub_classifications.code as codeSubClassification',
-                'sub_classifications.name as nameSubClassification',
-                'sub_classifications.additional as additionalSubClassification',
-                'medicines.id as idMedicine',
-                'medicines.active_principle as activePrincipleMed',
-                'medicines.pharmaceutical_form as pharmaceuticalFormMed',
-                'medicines.indications as indicationsMed',
-                'medicines.route_dosage as routeDosageMed',
-                'medicines.management_rules as managementRulesMed',
-                'medicines.observations as observationsMed',
-                'medicines.additional as additionalMed'
-            );
+        $query1 = Medicine::queryApi1();
+        $query2 = Medicine::queryApi2();
 
         if ($request->has('group')) {
-            $query = $query->where('groups.letter', '=', $group);
+            $query1 = $query1->where('groups.letter', '=', $group);
         }
 
-        $medicines = $query->get();
+        if ($request->has('group')) {
+            $query2 = $query2->where('groups.letter', '=', $group);
+        }
+
+        $medicines1 = $query1->get()->toArray();
+        $medicines2 = $query2->get()->toArray();
+
+        $medicines = array_merge($medicines1, $medicines2);
+
 
         return response()->json([
             'medicines' => $medicines,
@@ -68,29 +38,14 @@ class MedicineController extends Controller
     public function search($query)
     {
 
-        $medicines = Medicine::join('sub_classifications', 'sub_classifications.id', '=', 'medicines.sub_classification_id')
-            ->join('classifications', 'classifications.id', '=', 'sub_classifications.classification_id')
-            ->join('groups', 'groups.id', '=', 'classifications.group_id')
-            ->select(
-                'groups.letter as letterGroup',
-                'groups.name as nameGroup',
-                'groups.description as descriptionGroup',
-                'classifications.code as codeClassification',
-                'classifications.name as nameClassification',
-                'classifications.additional as additionalClassification',
-                'sub_classifications.code as codeSubClassification',
-                'sub_classifications.name as nameSubClassification',
-                'sub_classifications.additional as additionalSubClassification',
-                'medicines.id as idMedicine',
-                'medicines.active_principle as activePrincipleMed',
-                'medicines.pharmaceutical_form as pharmaceuticalFormMed',
-                'medicines.indications as indicationsMed',
-                'medicines.route_dosage as routeDosageMed',
-                'medicines.management_rules as managementRulesMed',
-                'medicines.observations as observationsMed',
-                'medicines.additional as additionalMed'
-            )->where('medicines.active_principle', 'like', '%' . $query . '%')->get();
+        $medicines1 = Medicine::queryApi1()->where('medicines.active_principle', 'like', '%' . $query . '%')
+            ->orwhere('medicines.indications', 'like', '%' . $query . '%')->get()->toArray();
 
+        $medicines2 = Medicine::queryApi2()->where('medicines.active_principle', 'like', '%' . $query . '%')
+            ->orwhere('medicines.indications', 'like', '%' . $query . '%')->get()->toArray();
+
+
+        $medicines = array_merge($medicines1, $medicines2);
 
         return response()->json([
             'medicines' => $medicines,
