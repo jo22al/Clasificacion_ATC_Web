@@ -20,6 +20,37 @@
 
             @foreach($medicines as $medicine)
 
+                @if($medicine->classification)
+                    <tr style="background-color: #0f1937e3; color: white;">
+                        <td colspan="7">
+                            {{ $medicine->classification->group->letter }} {{ $medicine->classification->group->name }}
+                        </td>
+                    </tr>
+                    <tr style="background-color: #1d2a4de3; color: white;">
+                        <td colspan="7">
+                            {{ $medicine->classification->code }} {{ $medicine->classification->name }}
+                        </td>
+                    </tr>
+                @endif
+
+                @if($medicine->sub_classification)
+                    <tr style="background-color: #0f1937e3; color: white;">
+                        <td colspan="7">
+                            {{ $medicine->sub_classification->classification->group->letter }} {{ $medicine->sub_classification->classification->group->name }}
+                        </td>
+                    </tr>
+                    <tr style="background-color: #1d2a4de3; color: white;">
+                        <td colspan="7">
+                            {{ $medicine->sub_classification->classification->code }} {{ $medicine->sub_classification->classification->name }}
+                        </td>
+                    </tr>
+                    <tr style="background-color: #1d2a4d9f; color: white;">
+                        <td colspan="7">
+                            {{ $medicine->sub_classification->code }} {{ $medicine->sub_classification->name }}
+                        </td>
+                    </tr>
+                @endif
+
                 <tr>
                     <td>{!! $medicine->active_principle !!}</td>
                     <td>{!! $medicine->pharmaceutical_form !!}</td>
