@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mt-2">
-                            
+
                             <div class="card-header">
                                 SUB CLASIFICACIONES
                                 <a href="{{ route('subclassification.create') }}" class="btn btn-sm btn-primary float-right">Crear</a>
@@ -26,7 +26,7 @@
                                         {{ session('status') }}
                                     </div>
                                 @endif
-                                <div class="table-responsive">  
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -42,7 +42,7 @@
 
                                                 <tr>
 
-                                                    <td><strong>{{ $subclassification->id }}</strong></td>                                            
+                                                    <td><strong>{{ $subclassification->id }}</strong></td>
                                                     <td> {{ $subclassification->classification->name }} </td>
                                                     <td>{{ $subclassification->code }}</td>
                                                     <td>{{ $subclassification->name }}</td>
@@ -65,8 +65,8 @@
 
                             </div>
 
-                            <div class="card-footer mr-auto">
-
+                            <div class="mt-3">
+                                {{ $subclassifications->links('pagination::bootstrap-4') }}
                             </div>
                         </div>
                     </div>

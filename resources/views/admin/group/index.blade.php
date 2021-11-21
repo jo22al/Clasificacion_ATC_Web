@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mt-2">
-                            
+
                             <div class="card-header">
                                 GRUPOS
                                 <a href="{{ route('group.create') }}" class="btn btn-sm btn-primary float-right">Crear</a>
@@ -23,9 +23,9 @@
                                 @if(session('success'))
                                     <div class="alert alert-success" role="success">
                                         {{ session('success') }}
-                                    </div>                                        
+                                    </div>
                                 @endif
-                                <div class="table-responsive">  
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -41,7 +41,7 @@
 
                                                 <tr>
 
-                                                    <td><strong>{{ $group->id }}</strong></td>                                            
+                                                    <td><strong>{{ $group->id }}</strong></td>
                                                     <td>{{ $group->letter }}</td>
                                                     <td>{{ $group->name }}</td>
                                                     <td>{!! Str::limit($group->description, 75) !!}</td>

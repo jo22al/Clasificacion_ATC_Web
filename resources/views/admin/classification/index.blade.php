@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mt-2">
-                            
+
                             <div class="card-header">
                                 CLASIFICACIONES
                                 <a href="{{ route('classification.create') }}" class="btn btn-sm btn-primary float-right">Crear</a>
@@ -26,7 +26,7 @@
                                         {{ session('status') }}
                                     </div>
                                 @endif
-                                <div class="table-responsive">  
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -42,7 +42,7 @@
 
                                                 <tr>
 
-                                                    <td><strong>{{ $classification->id }}</strong></td>                                            
+                                                    <td><strong>{{ $classification->id }}</strong></td>
                                                     <td>{{ $classification->group->name }}</td>
                                                     <td>{{ $classification->code }}</td>
                                                     <td>{{ $classification->name }}</td>
@@ -68,9 +68,6 @@
 
                             </div>
 
-                            <div class="card-footer mr-auto">
-
-                            </div>
                         </div>
                     </div>
                 </div>

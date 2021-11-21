@@ -56,7 +56,7 @@
 
                         <div class="form-group">
                             <label>Sub Clasificacion</label>
-                            <select name="sub_classification_id"  class="browser-default custom-select" required>
+                            <select name="sub_classification_id"  class="browser-default custom-select">
                                @if($medicine->sub_classification_id)
                                 <option
                                     value="{{ $medicine->sub_classification_id }}"
@@ -183,7 +183,7 @@
                             </select>
                         </div>
 
-           
+
 
                         <div class="form-group">
                             <label>Inforamcion Adicional</label>

@@ -15,7 +15,7 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        $medicines = Medicine::latest()->get();
+        $medicines = Medicine::latest()->paginate(15);
 
         return view('admin.medicine.index', compact('medicines'));
     }
@@ -95,6 +95,6 @@ class MedicineController extends Controller
     {
         $medicine->delete();
 
-        return back()->with('status', 'Medicamento Eliminado'); 
+        return back()->with('status', 'Medicamento Eliminado');
     }
 }

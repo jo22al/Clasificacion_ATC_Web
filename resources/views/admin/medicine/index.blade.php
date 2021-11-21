@@ -72,8 +72,8 @@
 
                             </div>
 
-                            <div class="card-footer mr-auto">
-
+                            <div class="mt-3">
+                                {{ $medicines->links('pagination::bootstrap-4') }}
                             </div>
                         </div>
                     </div>

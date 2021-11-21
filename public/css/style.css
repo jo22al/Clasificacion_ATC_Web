@@ -267,6 +267,11 @@
        border-bottom: 1px solid #ddd;
  }
 
+ .container_table thead {
+	position: sticky;
+	top: 88px;
+}
+
  .container_table {
        text-align: left;
        width: 95%;
@@ -295,6 +300,11 @@
  -webkit-box-shadow: 0 6px 6px -6px #0E1119;
         -moz-box-shadow: 0 6px 6px -6px #0E1119;
              box-shadow: 0 6px 6px -6px #0E1119;
+ }
+
+.container_table tr:hover td table {
+    background-color: #499e6d;
+    color: rgb(0, 0, 0);
  }
 
 

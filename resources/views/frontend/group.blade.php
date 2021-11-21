@@ -57,12 +57,25 @@
                     <td>{!! $medicine->route_dosage !!}</td>
                     <td>{!! $medicine->management_rules !!}</td>
                     <td>{!! $medicine->observations !!}</td>
-                    <td class="text-center" style="font-size: 30px">
+                    <td class="text-center dropdown" style="font-size: 30px">
                         @if(@$medicine->criterion == "START")
-                        <i class="fas fa-check-circle" style="color: rgb(3, 208, 3)"></i>
+                            <i class="fas fa-check-circle" style="color: rgb(3, 208, 3)"></i>
+                            <div class="dropdown-content">
+                                <p style="color: black; font-size: 15px;">
+                                    Criterio: START <br>
+                                    Este medicamento se puede aplicar sin problema.
+                                </p>
+                            </div>
                         @elseif(@$medicine->criterion == "STOPP")
                             <i class="fas fa-exclamation-circle" style="color: rgb(255, 17, 0)"></i>
+                            <div class="dropdown-content">
+                                <p style="color: black; font-size: 15px;">
+                                    Criterio: STOPP <br>
+                                    Este medicamento debe ser administrado con precaucion.
+                                </p>
+                            </div>
                         @endif
+
                     </td>
                 </tr>
 
