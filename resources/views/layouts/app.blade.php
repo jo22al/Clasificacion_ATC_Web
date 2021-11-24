@@ -122,8 +122,6 @@
         </div>
     </div>
 
-    <script src="http://lab.lepture.com/github-cards/widget.js"></script>
-
 
     {{--FIN POPUP DESARROLLADORES --}}
 
@@ -165,8 +163,11 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="https://lab.lepture.com/github-cards/widget.js"></script>
 
 
 </body>
 
 </html>
+
+
