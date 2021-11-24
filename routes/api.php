@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource( name: 'medicines', controller: MedicineController::class );
-Route::apiResource( name: 'groups', controller: GroupController::class );
+Route::apiResource( 'medicines',  MedicineController::class );
+Route::apiResource( 'groups',  GroupController::class );
 Route::get("search/{query}", [MedicineController::class, 'search']);
