@@ -19,7 +19,13 @@
                                 <h1 class="mb-3 text-white">{{ $group->letter }}</h1>
                             </div>
                             <h4 class="mb-3">{{ $group->name }}</h4>
-                            <a class="btn btn-lg btn-primary rounded-pill" href=" {{ route('grupo', $group) }} ">
+                            <a
+                                class="btn btn-lg btn-primary rounded-pill"
+                                href=" {{ route('grupo', [
+                                    'group' => $group,
+                                    'name' => $group->name
+                                ]) }} "
+                            >
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>

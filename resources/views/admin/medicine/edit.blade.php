@@ -38,8 +38,9 @@
                                     {{ $medicine->classification->name }}
                                 </option>
                                 @else
-                                <option value=""></option>
                                @endif
+
+                                    <option value="">Sin Clasificacion</option>
 
                                 @foreach($classifications as $classification)
 
@@ -64,7 +65,7 @@
                                     {{ $medicine->sub_classification->name }}
                                 </option>
                                 @else
-                                <option value=""></option>
+                                <option value="">Sin Sub_Clasificacion</option>
                                @endif
 
                                 @foreach($subclassifications as $subclassification)

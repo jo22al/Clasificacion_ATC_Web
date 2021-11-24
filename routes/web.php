@@ -28,7 +28,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\PageController::class, 'inicio'])->name('inicio');
 Route::get('guiaatc', [App\Http\Controllers\PageController::class, 'guiaatc'])->name('guiaatc');
-Route::get('group{group}', [App\Http\Controllers\PageController::class, 'group'])->name('grupo');
+Route::get('/group{group} -{name}', [App\Http\Controllers\PageController::class, 'group'])->name('grupo');
 Route::get('resume{resume}', [App\Http\Controllers\PageController::class, 'resume'])->name('resume');
 Route::get('search', [App\Http\Controllers\PageController::class, 'search'])->name('search');
 

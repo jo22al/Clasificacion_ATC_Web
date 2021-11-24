@@ -52,7 +52,7 @@
     <div class="container-fluid sticky-top bg-white shadow-sm">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-                <a href="index.html" class="navbar-brand">
+                <a href="{{ route('inicio') }}" class="navbar-brand">
                     <h1 class="m-0 text-uppercase text-primary"><i class="fas fa-pills"></i> Guia ATC</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -86,6 +86,47 @@
 
 
 
+
+    {{-- POPUP DESARROLLADORES --}}
+
+    <style>
+
+        .modal-body iframe{
+            height: auto;
+            width: 100%;
+        }
+
+    </style>
+
+
+    <div id="login" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-body">
+                <button data-dismiss="modal" class="close">&times;</button>
+
+                <h4>Desarrolladores</h4>
+                <div class="github-card" data-user="Fernatzoc"></div>
+                <div class="github-card" data-user="RodrigoJuarezGT"></div>
+
+                <h4>Repositorio del Proyecto</h4>
+                <div class="text-center">
+                    <a href="https://github.com/jo22al/Clasificacion_ATC_Web" target="_blank">
+                        <i class="fab fa-github" style="font-size: 60px"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="http://lab.lepture.com/github-cards/widget.js"></script>
+
+
+    {{--FIN POPUP DESARROLLADORES --}}
+
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light mt-5 py-5 text-center">
         Echo con <i class="fas fa-heart" style="color: white"></i> en Guatemala
@@ -95,10 +136,12 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-md-0">&copy; <a class="text-primary" href="#">Your Site Name</a>. All Rights Reserved.</p>
+                    <p class="mb-md-0">&copy; <a class="text-primary" href="#">vademecumgeriagt.com</a> Todos los derechos reservados.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0">Developed by <a class="text-primary" href="https://htmlcodex.com">CHATOS</a></p>
+                    <p class="mb-0">
+                        <a class="login-trigger" href="#" data-target="#login" data-toggle="modal">DESARROLLADORES</a>
+                    </p>
                 </div>
             </div>
         </div>

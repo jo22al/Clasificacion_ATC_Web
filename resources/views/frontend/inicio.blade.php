@@ -42,12 +42,20 @@
 
                     </p>
                     <div class="row g-3 pt-3">
-                        <div class="col-sm-3 col-6">
+                        <a href="https://play.google.com/store/apps/details?id=gt.chatos.clasificacionatc" target="_blank" class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fab fa-android" style="font-size: 50px"></i>
                                 <h6 class="mb-0">App Movil<small class="d-block text-primary">ANDROID</small></h6>
                             </div>
-                        </div>
+                        </a>
+                        <a href="#" target="_blank" class="col-sm-3 col-6">
+                            <div class="bg-light text-center rounded-circle py-4">
+                                <i class="fas fa-mobile" style="font-size: 50px"></i>
+                                <h6 class="mb-0">App Movil<small class="d-block text-primary">HUAWEI</small></h6>
+                            </div>
+                        </a>
+
+
                     </div>
                 </div>
             </div>
@@ -72,7 +80,14 @@
                                 <h1 class="mb-3 text-white">{{ $group->letter }}</h1>
                             </div>
                             <h4 class="mb-3">{{ $group->name }}</h4>
-                            <a class="btn btn-lg btn-primary rounded-pill" href=" {{ route('grupo', $group) }} ">
+                            
+                                <a
+                                class="btn btn-lg btn-primary rounded-pill"
+                                href=" {{ route('grupo', [
+                                    'group' => $group,
+                                    'name' => $group->name
+                                ]) }} "
+                            >
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
@@ -112,7 +127,7 @@
         <div class="container">
             <div class="text-center mx-auto mb-5" style="max-width: 500px;">
                 <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Integrantes</h5>
-                <h1 class="display-6">MEDICOS ESTUDIANTES QUE HICIERON POSIBLE EL PROYECTO</h1>
+                <h1 class="display-6">MEDICOS MAESTRANTES QUE HICIERON POSIBLE EL PROYECTO</h1>
             </div>
             <div class="owl-carousel team-carousel position-relative">
 
