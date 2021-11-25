@@ -19,12 +19,14 @@ use App\Http\Controllers\PageController;
 // });
 
 
+
+
 Route::get('/admin', function () {
     return view('admin.index');
-});
+})->middleware('auth');
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/', [App\Http\Controllers\PageController::class, 'inicio'])->name('inicio');
 Route::get('guiaatc', [App\Http\Controllers\PageController::class, 'guiaatc'])->name('guiaatc');
