@@ -48,7 +48,7 @@
                                 <h6 class="mb-0">App Movil<small class="d-block text-primary">ANDROID</small></h6>
                             </div>
                         </a>
-                        <a href="#" target="_blank" class="col-sm-3 col-6">
+                        <a href="https://appgallery.huawei.com/app/C105011817?sharePrepath=ag&locale=es_GT" target="_blank" class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fas fa-mobile" style="font-size: 50px"></i>
                                 <h6 class="mb-0">App Movil<small class="d-block text-primary">HUAWEI</small></h6>
@@ -80,7 +80,7 @@
                                 <h1 class="mb-3 text-white">{{ $group->letter }}</h1>
                             </div>
                             <h4 class="mb-3">{{ $group->name }}</h4>
-                            
+
                                 <a
                                 class="btn btn-lg btn-primary rounded-pill"
                                 href=" {{ route('grupo', [

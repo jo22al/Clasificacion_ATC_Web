@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>VademecumGeriaGT</title>
+    <link rel="icon" href="{{ asset('img/icono.jpg') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -53,7 +54,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
                 <a href="{{ route('inicio') }}" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-primary"><i class="fas fa-pills"></i> Guia ATC</h1>
+                    <h1 class="m-0 text-uppercase text-primary"><i class="fas fa-pills"></i> VademecumGeriaGT</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>

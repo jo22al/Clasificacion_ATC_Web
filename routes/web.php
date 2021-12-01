@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{GroupController,ClassificationController, SubClassificationController,MedicineController, ResumeController};
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\{PageController, SettingsController};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,11 +28,13 @@ Route::get('/admin', function () {
 
 Auth::routes(['register' => false]);
 
-Route::get('/', [App\Http\Controllers\PageController::class, 'inicio'])->name('inicio');
-Route::get('guiaatc', [App\Http\Controllers\PageController::class, 'guiaatc'])->name('guiaatc');
-Route::get('/group{group} -{name}', [App\Http\Controllers\PageController::class, 'group'])->name('grupo');
-Route::get('resume{resume}', [App\Http\Controllers\PageController::class, 'resume'])->name('resume');
-Route::get('search', [App\Http\Controllers\PageController::class, 'search'])->name('search');
+Route::get('/', [PageController::class, 'inicio'])->name('inicio');
+Route::get('guiaatc', [PageController::class, 'guiaatc'])->name('guiaatc');
+Route::get('/group{group} -{name}', [PageController::class, 'group'])->name('grupo');
+Route::get('resume{resume}', [PageController::class, 'resume'])->name('resume');
+Route::get('search', [PageController::class, 'search'])->name('search');
+Route::get('admin/settings', [SettingsController::class, 'settings'])->middleware('auth');
+Route::get('admin/settings/{user}', [SettingsController::class, 'update'])->middleware('auth')->name('settings.update');
 
 Route::resource('admin/group', GroupController::class);
 Route::resource('admin/classification',ClassificationController::class);
