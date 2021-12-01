@@ -16,7 +16,7 @@ class ClassificationController extends Controller
      */
     public function index()
     {
-        $classifications = Classification::latest()->paginate(15);
+        $classifications = Classification::latest()->get();
 
         return view('admin.classification.index', compact('classifications'));
     }

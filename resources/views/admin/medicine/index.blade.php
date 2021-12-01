@@ -27,21 +27,19 @@
                                     </div>
                                 @endif
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table id="myTable" class="table">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th> - </th>
+                                                <th></th>
                                                 <th>PRINCIPIO ACTIVO</th>
                                                 <th>FORMA FARMACEUTICA</th>
+                                                <th>ACCIONES</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach($medicines as $medicine)
 
                                                 <tr>
-
-                                                    <td><strong>{{ $medicine->id }}</strong></td>
                                                     <td>
                                                         @if($medicine->sub_classification)
                                                             <strong>Sub Clasificacion: </strong> <br> {{ $medicine->sub_classification->name }}
@@ -73,7 +71,7 @@
                             </div>
 
                             <div class="mt-3">
-                                {{ $medicines->links('pagination::bootstrap-4') }}
+                                {{-- {{ $medicines->links('pagination::bootstrap-4') }} --}}
                             </div>
                         </div>
                     </div>
@@ -88,6 +86,52 @@
 @stop
 
 
+@section('css')
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+@stop
+
 @section('js')
+
+ <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+ <script>
+
+$(document).ready( function () {
+
+    $('#myTable').DataTable( {
+        columnDefs: [
+            { orderable: false, targets: 0 },
+            { orderable: false, targets: 1 },
+            { orderable: false, targets: 2 },
+            { orderable: false, targets: 3 },
+        ],
+        "language": {
+            "info": "Mostrando pagina _PAGE_ de _PAGES_",
+            "decimal":        "",
+            "emptyTable":     "No hay datos",
+            "infoEmpty":      "Showing 0 to 0 of 0 registros",
+            "infoFiltered":   "(filtrado de _MAX_ total registros)",
+            "infoPostFix":    "",
+            "thousands":      ",",
+            "lengthMenu":     "Mostrando _MENU_  registros",
+            "loadingRecords": "Cargando...",
+            "processing":     "Procesando...",
+            "search":         "Buscar:",
+            "zeroRecords":    "No se encontro ningun dato",
+            "paginate": {
+                "first":      "Primero",
+                "last":       "Ultimo",
+                "next":       "Siguiente",
+                "previous":   "Anterior"
+            },
+        },
+    } );
+
+} );
+
+ </script>
+
 
 @stop

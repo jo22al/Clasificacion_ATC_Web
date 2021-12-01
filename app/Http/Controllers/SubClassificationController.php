@@ -16,7 +16,7 @@ class SubClassificationController extends Controller
      */
     public function index()
     {
-        $subclassifications = SubClassification::latest()->paginate(15);
+        $subclassifications = SubClassification::latest()->get();
 
         return view('admin.subclassification.index', compact('subclassifications'));
     }

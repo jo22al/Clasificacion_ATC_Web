@@ -26,13 +26,11 @@
                                     </div>
                                 @endif
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table id="medicinesTable" class="table">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
                                                 <th>LETRA</th>
                                                 <th>NOMBRE</th>
-                                                <th>DESCRIPCIÓN</th>
                                                 <th>ACCIONES</th>
                                             </tr>
                                         </thead>
@@ -40,11 +38,8 @@
                                             @foreach($groups as $group)
 
                                                 <tr>
-
-                                                    <td><strong>{{ $group->id }}</strong></td>
                                                     <td>{{ $group->letter }}</td>
                                                     <td>{{ $group->name }}</td>
-                                                    <td>{!! Str::limit($group->description, 75) !!}</td>
                                                     <td class="d-flex">
                                                         <a href="{{ route('group.edit', $group) }}" class="btn btn-warning mr-2"><i class="far fa-edit"></i></a>
                                                         <form action="{{ route('group.destroy', $group) }}" method="POST">
@@ -62,7 +57,7 @@
                                     </table>
                                 </div>
                                 <div class="mt-3">
-                                        {{ $groups->links('pagination::bootstrap-4') }}
+                                        {{-- {{ $groups->links('pagination::bootstrap-4') }} --}}
                                 </div>
 
                             </div>
@@ -80,7 +75,49 @@
 
 @stop
 
+@section('css')
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+@stop
 
 @section('js')
+
+ <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+ <script>
+
+$(document).ready( function () {
+
+    $('#medicinesTable').DataTable( {
+        columnDefs: [
+            { orderable: false, targets: 2 },
+        ],
+        "language": {
+            "info": "Mostrando pagina _PAGE_ de _PAGES_",
+            "decimal":        "",
+            "emptyTable":     "No hay datos",
+            "infoEmpty":      "Showing 0 to 0 of 0 registros",
+            "infoFiltered":   "(filtrado de _MAX_ total registros)",
+            "infoPostFix":    "",
+            "thousands":      ",",
+            "lengthMenu":     "Mostrando _MENU_  registros",
+            "loadingRecords": "Cargando...",
+            "processing":     "Procesando...",
+            "search":         "Buscar:",
+            "zeroRecords":    "No se encontro ningun dato",
+            "paginate": {
+                "first":      "Primero",
+                "last":       "Ultimo",
+                "next":       "Siguiente",
+                "previous":   "Anterior"
+            },
+        },
+    } );
+
+} );
+
+ </script>
+
 
 @stop

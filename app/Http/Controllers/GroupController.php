@@ -12,9 +12,9 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $groups = Group::paginate(15);
+        $groups = Group::latest()->get();
 
         return view('admin.group.index', compact('groups'));
 

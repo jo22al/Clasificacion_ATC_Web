@@ -27,10 +27,9 @@
                                     </div>
                                 @endif
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table id="myTable" class="table">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
                                                 <th>GRUPO</th>
                                                 <th>CODIGO</th>
                                                 <th>NOMBRE</th>
@@ -41,8 +40,6 @@
                                             @foreach($classifications as $classification)
 
                                                 <tr>
-
-                                                    <td><strong>{{ $classification->id }}</strong></td>
                                                     <td>{{ $classification->group->name }}</td>
                                                     <td>{{ $classification->code }}</td>
                                                     <td>{{ $classification->name }}</td>
@@ -63,7 +60,7 @@
                                     </table>
                                 </div>
                                 <div class="mt-3">
-                                        {{ $classifications->links('pagination::bootstrap-4') }}
+                                        {{-- {{ $classifications->links('pagination::bootstrap-4') }} --}}
                                 </div>
 
                             </div>
@@ -81,6 +78,49 @@
 @stop
 
 
+@section('css')
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+@stop
+
 @section('js')
+
+ <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+ <script>
+
+$(document).ready( function () {
+
+    $('#myTable').DataTable( {
+        columnDefs: [
+            { orderable: false, targets: 3 },
+        ],
+        "language": {
+            "info": "Mostrando pagina _PAGE_ de _PAGES_",
+            "decimal":        "",
+            "emptyTable":     "No hay datos",
+            "infoEmpty":      "Showing 0 to 0 of 0 registros",
+            "infoFiltered":   "(filtrado de _MAX_ total registros)",
+            "infoPostFix":    "",
+            "thousands":      ",",
+            "lengthMenu":     "Mostrando _MENU_  registros",
+            "loadingRecords": "Cargando...",
+            "processing":     "Procesando...",
+            "search":         "Buscar:",
+            "zeroRecords":    "No se encontro ningun dato",
+            "paginate": {
+                "first":      "Primero",
+                "last":       "Ultimo",
+                "next":       "Siguiente",
+                "previous":   "Anterior"
+            },
+        },
+    } );
+
+} );
+
+ </script>
+
 
 @stop
