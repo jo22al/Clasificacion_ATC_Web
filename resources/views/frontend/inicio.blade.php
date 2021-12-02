@@ -42,7 +42,7 @@
 
                     </p>
                     <div class="row g-3 pt-3">
-                        <a href="https://play.google.com/store/apps/details?id=gt.chatos.clasificacionatc" target="_blank" class="col-sm-3 col-6">
+                        <a href="https://play.google.com/store/apps/details?id=gt.chatos.guiaatc" target="_blank" class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fab fa-android" style="font-size: 50px"></i>
                                 <h6 class="mb-0">App Movil<small class="d-block text-primary">ANDROID</small></h6>
